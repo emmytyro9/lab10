@@ -1,12 +1,9 @@
 package coinmachine;
 
-import java.util.Observable;
-import java.util.Observer;
-
 /**
  * A Coin represents metalic money with a value.
  */
-public class Coin implements Comparable<Coin> , Observer {
+public class Coin implements Comparable<Coin> {
 	/** value of the coin */
 	private final int value;
 	private final String currency;
@@ -84,10 +81,13 @@ public class Coin implements Comparable<Coin> , Observer {
 		return 0;
 	}
 
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		if( arg1 != null) {
-			System.out.println("The subject is sent: " + arg1);
-		}
-	}
+//	@Override
+//	public void update(Observable arg0, Object arg1) {
+//		CoinMachineShow coinShow = new CoinMachineShow() ;
+//		CoinMachine machine = (CoinMachine) arg1 ;
+//		if( arg1 != null) {
+//			System.out.println("eiei") ;
+//			coin_gui.getText().setText(String.valueOf(machine.getCount()));
+//		}
+//	}
 }

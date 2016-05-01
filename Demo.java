@@ -1,4 +1,5 @@
 package coinmachine;
+import java.util.Observer;
 import java.util.Scanner;
 
 /**
@@ -56,27 +57,14 @@ public class Demo {
 	 * @param args not used
 	 */
 	public static void main(String[] args) {
-		final int capacity = 11;  // how many coins the machine can hold
+		final int capacity = 10 ;  // how many coins the machine can hold
 		
-		CoinMachine machine = new CoinMachine( capacity );
+		CoinMachine machine = new CoinMachine(capacity);
 		Demo demo = new Demo();
-		Coin coin = new Coin(0) ;
 		
-		machine.addObserver(coin) ;
+		CoinCount coinCount = new CoinCount() ;
 		
-		CoinMachineShow coinShow = new CoinMachineShow() ;
-		coinShow.run();
-		
-		CoinGUI counting = new CoinGUI() ;
-		counting.run();
-		
+		machine.addObserver(coinCount) ;
 		demo.insertDialog(machine);
 	}
-	
-//	// CLUDGE: how to get the currency?  Look at the first coin in machine.
-//	  String currency = "";
-//	  if (machine.getCount() > 0) currency = machine.getCoins().get(0).getCurrency();
-//	//  System.out.printf("Machine contains %d coins and value %d %s\n",
-////	    machine.getCount(), machine.getBalance(), currency); 
-//	  if (machine.isFull()) System.out.println("Machine is FULL.");
 }

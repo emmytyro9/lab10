@@ -110,14 +110,14 @@ public class CoinMachineShow extends JFrame{
 						machine.insert(oneBaht) ;
 						count += machine.getCount() ;
 						amount += machine.getBalance() ;
-						machine.notifyObservers() ;
 						progressBar.setValue(count) ;
 						balance.setText("Balance: " + amount + "      ") ;
 						System.out.println("1" + "\n" + oneBaht +" inserted");
 						if(count <= 9)
 						System.out.print("Values of coins to insert: ");
-					}else if(count == 10)
-						System.out.println("Machine id Full.");
+					}
+					else if(count == 10)
+						System.out.println("Machine is Full.");
 				}
 				
 				if(button == five) {
@@ -127,7 +127,12 @@ public class CoinMachineShow extends JFrame{
 						amount += machine.getBalance() ;
 						progressBar.setValue(count) ;
 						balance.setText("Balance: " + amount + "      ") ;
+						System.out.println("5" + "\n" + fiveBaht +" inserted");
+						if(count <= 9)
+						System.out.print("Values of coins to insert: ");
 					}
+					else if(count == 10)
+						System.out.println("Machine is Full.");
 				}
 				if(button == ten) {
 					if(count < 10) {
@@ -136,7 +141,12 @@ public class CoinMachineShow extends JFrame{
 						amount += machine.getBalance() ;
 						progressBar.setValue(count) ;
 						balance.setText("Balance: " + amount + "      ") ;
+						System.out.println("10" + "\n" + tenBaht +" inserted");
+						if(count <= 9)
+						System.out.print("Values of coins to insert: ");
 					}
+					else if(count == 10)
+						System.out.println("Machine is Full.");
 				}
 			}
 		});

@@ -3,12 +3,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.*;
+import java.util.Observable;
+import java.util.Observer;
 
 
 
-public class CoinGUI extends JFrame {
-
+public class CoinGUI extends JFrame implements Observer {
 	private JTextField textField;
+	private CoinMachine machine ;
 
 	public CoinGUI() {
 		initialize() ;
@@ -50,12 +52,20 @@ public class CoinGUI extends JFrame {
 		lblAcceptingCoins.setBounds(115, 62, 74, 14);
 		containerC.add(lblAcceptingCoins);
 		
-		
-		
 		pack() ;
+	}
+	
+	public JTextField getText() {
+		return textField ;
 	}
 
 	public void run() {
 		this.setVisible(true) ;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		textField.setText(Integer.toString(((CoinMachine)o).getCount()));
+		
 	}
 }

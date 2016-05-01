@@ -63,7 +63,7 @@ public class CoinMachine extends Observable {
 		boolean result = coins.add(m) ;
 		//TODO notify observers
 		super.setChanged();
-		super.notifyObservers();
+		super.notifyObservers(coins);
 		return result;
 	}
 	
